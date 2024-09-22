@@ -7,22 +7,25 @@ repositories {
 }
 
 dependencies {
-    // JUnit 5
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.0'
+    // JUnit 5 (테스트를 위한 의존성)
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.0'
 
-    // Testcontainers for MySQL
-    testImplementation 'org.testcontainers:testcontainers:1.20.1' // TC 의존성
+    // Testcontainers for MySQL (Testcontainers 의존성)
+    testImplementation 'org.testcontainers:testcontainers:1.20.1'
     testImplementation "org.testcontainers:junit-jupiter:1.20.1"
-    testImplementation 'org.testcontainers:mysql:1.20.1'     // PostgreSQL 컨테이너 사용
-    testImplementation 'org.testcontainers:jdbc:1.20.1'           // DB와의 JDBC connection
-	
+    testImplementation 'org.testcontainers:mysql:1.20.1'
+    testImplementation 'org.testcontainers:jdbc:1.20.1'
 
-    // MySQL JDBC Driver
+    // MySQL JDBC Driver (JDBC 드라이버)
     implementation 'mysql:mysql-connector-java:8.0.32'
+
+    // SLF4J + Log4j2 (SLF4J를 Log4j2와 함께 사용)
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.0'
+    implementation 'org.apache.logging.log4j:log4j-api:2.17.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.17.0'
 }
 
 test {
     useJUnitPlatform()
 }
-
